@@ -1,0 +1,31 @@
+version: '3'
+services:
+  backend_app:
+    container_name: backend_app
+    image: jenkins/jenkins
+    image: backend_app
+    build: 
+      context: /tmp/flex1/docker_1/docker_tomcat_server/
+
+      dockerfile: /tmp/flex1/docker_1/docker_tomcat_server/Dockerfile_tomacat.yml
+    ports:
+      - "8080:8080"
+    restart: always
+    networks:
+      - net
+  frontend_app:
+    container_name: frontend_app
+    image: frontend_app
+    build:
+      context: /tmp/flex1/docker_1/docker_nginx_server/
+
+      dockerfile: /tmp/flex1/docker_1/docker_nginx_server/Dockerfile_nginx_server.yaml
+
+    ports:
+      - "81:80"
+    restart: always
+    networks:
+      - net
+
+networks:
+    net:

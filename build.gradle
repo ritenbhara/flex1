@@ -1,0 +1,21 @@
+
+plugins {
+    // Apply the application plugin to add support for building a CLI application in Java.
+    id 'war'
+    id 'org.gretty' version '3.0.9'
+}
+
+repositories {
+    // Use Maven Central for resolving dependencies.
+    mavenCentral()
+}
+
+dependencies {
+
+compileOnly group: 'jakarta.servlet', name: 'jakarta.servlet-api', version: '5.0.0-M2'
+
+}
+java {
+     sourceCompatibility = JavaVersion.VERSION_1_8
+     targetCompatibility = JavaVersion.VERSION_1_8
+}

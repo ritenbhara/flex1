@@ -1,0 +1,4 @@
+FROM tomcat:8.5.47-jdk8-openjdk
+COPY flex.war /usr/local/tomcat/webapps/flex.war
+RUN  apt update -y &&  apt install nginx -y
+CMD ["catalina.sh", "run"]
